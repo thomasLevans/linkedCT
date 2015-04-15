@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="d3.min.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.3/d3-tip.min.js"></script>
+
+    <style>
+
+
+    .title {
+        font-size: 33px;
+        font-family: Roboto Slab;
+        fill-opacity: 0.65;
+        fill: black;
+    }
+
+    .pages {
+        font-size: 18px;
+        font-family: Roboto Slab;
+        fill-opacity: 0.65;
+    }
+
+    .node {
+        font-size: 28px;
+        font-family: Roboto Slab;
+        fill-opacity: 0.8;
+    }
+
+    .trial-label {
+        font-family: Roboto Slab;
+        fill: steelblue;
+        text-anchor: middle;
+        font-size: 33px;
+        fill-opacity: 0.8;
+    }
+
+    .key-label {
+        font-family: Roboto Slab;
+        fill: purple;
+        text-anchor: middle;
+        font-size: 24px;
+        fill-opacity: 0.8;
+    }
+
+    .link {
+      stroke: steelblue;
+      stroke-opacity: .4;
+      stroke-width: 3;
+      fill: none;
+    }
+
+    .body-text {
+        font-size: 18px;
+        font-family: Roboto Slab;
+        fill-opacity: 0.8;
+    }
+
+    </style>
+    
+</head>
+<meta charset="utf-8">
+<body>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+                <div class="panel panel-info">
+                    <div class="panel-heading title">Word Cloud of Keywords for MUSC Clinical Trials on LinkedCT.gov</div>
+                    <nav><ul class="pagination"></ul></nav>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-3">
+
+            <div class="panel panel-info">
+                <div class="panel-heading title">The Breakdown</div>
+                    <div class="panel-body">
+                        <p class="body-text">
+                            This is the initial implementation of a word cloud driven visualization.  The data is
+                            courtesy of LinkedCT.gov.  By querying the SQARQL endpoint, all data pertinent to clinical
+                            trials participated in by the Medical University of South Carolina has been compiled.  By
+                            examining the predicates surrounding a trial entity it seemed useful to break partition
+                            the MUSC trials by year.  Furthermore each year displays all keywords associated with all
+                            trials for the given year, allowing the user to view the year's body of trials from a topical perspective.  By clicking on a keyword a transition will trigger displaying the specific trial the keyword is linked to, and all other associated keywords for the trial.  Mousing over the trial will display a detailed tooltip.  Double clicking either the trial node, or the keywords will transition the visualization back to it's previous state.
+                        </p>
+                    </div>
+            </div>            
+        </div>
+        <div class="col-xs-8">
+            <div class="panel panel-info">
+                <div class="chart"></div>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <div class="panel panel-info">
+                <div class="panel-heading title">The Metrics</div>
+                <div class="panel-body">
+                    <p class="body-text" id="metrics">
+                        ipsum opsi ipsa...
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="clinicalCloudScript.js"></script>
+</body>
